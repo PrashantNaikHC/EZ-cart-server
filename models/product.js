@@ -27,14 +27,6 @@ const itemSchema = new mongoose.Schema({
     }
 })
 
-const productSchema = new mongoose.Schema({
-    "data": {
-      "type": [itemSchema]
-    }
-  })
-
 const Item = mongoose.model('Item', itemSchema);
-const Product = mongoose.model('Product', productSchema);
 
 module.exports = Item;
-module.exports = Product;
