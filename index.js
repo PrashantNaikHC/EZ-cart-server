@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const Product = require('./models/product');
+const Orders = require('./models/order');
 
 const PORT = 3000
 
@@ -22,6 +23,12 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/login', async (req, res) => {
     const products = await Product.find({})
     const result = { data: products}
+    res.send(result)
+})
+
+app.get('/getorders', async (req, res) => {
+    const orders = await Orders.find({})
+    const result = { data: orders}
     res.send(result)
 })
 
